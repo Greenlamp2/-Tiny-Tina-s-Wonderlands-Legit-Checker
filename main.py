@@ -14,7 +14,7 @@ if __name__ == '__main__':
     db.load('db/melee_balances.csv', "MELEE")
 
     __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
-    save_a = WonderlandsSave(os.path.join(__location__, "saves_test/80_blues.sav"))
+    save_a = WonderlandsSave(os.path.join(__location__, "saves_test/1.sav"))
     items = save_a.get_items()
     for item in items:
         balance = item.balance
