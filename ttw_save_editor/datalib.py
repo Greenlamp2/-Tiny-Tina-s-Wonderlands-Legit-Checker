@@ -356,9 +356,6 @@ class BL3Serial(object):
 
         # Now let's see if we can parse parts
         self._part_invkey = self.invkey_db.get(self._balance)
-        if self._part_invkey == "" and self._balance_short == "Balance_SM_DAL_Heckwader":
-            self._part_invkey = "BPInvPart_Dahl_SMG_C"
-
         if self._part_invkey is None:
             self.can_parse_parts = False
         else:
