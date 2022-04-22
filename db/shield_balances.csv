@@ -916,3 +916,22 @@ TwistedSisters,Named Shield,InvBalD_Shield_TwistedSisters,RARITY,1,1,1,Shield_Pa
 TwistedSisters,Named Shield,InvBalD_Shield_TwistedSisters,LEGENDARY AUG,1,1,1,Part_Shield_Aug_ANS_TwistedSisters,,
 TwistedSisters,Named Shield,InvBalD_Shield_TwistedSisters,ELEMENT,1,1,1,Shield_Part_Element_DarkMagic,,
 TwistedSisters,Named Shield,InvBalD_Shield_TwistedSisters,MATERIAL,1,1,1,Shield_Part_Material_Anshin_03_Rare,,
+Counterfeint,Named Shield,InvBalD_Shield_Counterfeint,BODY,1,1,1,Shield_Part_Body_01_Anshin,,
+Counterfeint,Named Shield,InvBalD_Shield_Counterfeint,RARITY,1,1,1,Shield_Part_Rarity_Anshin_05_Legendary,,
+Counterfeint,Named Shield,InvBalD_Shield_Counterfeint,LEGENDARY AUG,1,1,1,Part_Shield_Aug_ANS_Counterfeint,,
+Counterfeint,Named Shield,InvBalD_Shield_Counterfeint,AUGMENT,2,2,1,Part_Shield_Aug_Adrenaline,,
+Counterfeint,Named Shield,InvBalD_Shield_Counterfeint,AUGMENT,2,2,1,Part_Shield_Aug_Capacity,,
+Counterfeint,Named Shield,InvBalD_Shield_Counterfeint,AUGMENT,2,2,1,Part_Shield_Aug_Fleet,,
+Counterfeint,Named Shield,InvBalD_Shield_Counterfeint,AUGMENT,2,2,1,Part_Shield_Aug_Knockback,Shield_Part_Body_02_Pangolin,
+Counterfeint,Named Shield,InvBalD_Shield_Counterfeint,AUGMENT,2,2,1,Part_Shield_Aug_Nova,,"Shield_Part_Rarity_Anshin_02_Uncommon, Shield_Part_Rarity_Hyperion_02_Uncommon, Shield_Part_Rarity_Pangolin_02_Uncommon"
+Counterfeint,Named Shield,InvBalD_Shield_Counterfeint,AUGMENT,2,2,1,Part_Shield_Aug_RechargeDelay,,
+Counterfeint,Named Shield,InvBalD_Shield_Counterfeint,AUGMENT,2,2,1,Part_Shield_Aug_RechargeRate,,
+Counterfeint,Named Shield,InvBalD_Shield_Counterfeint,AUGMENT,2,2,1,Part_Shield_Aug_Roid,,
+Counterfeint,Named Shield,InvBalD_Shield_Counterfeint,AUGMENT,2,2,1,Part_Shield_Aug_TriggerHappy,,"Shield_Part_Rarity_Anshin_02_Uncommon, Shield_Part_Rarity_Hyperion_02_Uncommon, Shield_Part_Rarity_Pangolin_02_Uncommon"
+Counterfeint,Named Shield,InvBalD_Shield_Counterfeint,ELEMENT,1,1,1,Shield_Part_Element_Normal,,"Part_Shield_Aug_Nova, Part_Shield_Aug_Resistance"
+Counterfeint,Named Shield,InvBalD_Shield_Counterfeint,ELEMENT,1,1,1,Shield_Part_Element_Cryo,,
+Counterfeint,Named Shield,InvBalD_Shield_Counterfeint,ELEMENT,1,1,1,Shield_Part_Element_DarkMagic,,
+Counterfeint,Named Shield,InvBalD_Shield_Counterfeint,ELEMENT,1,1,1,Shield_Part_Element_Fire,,
+Counterfeint,Named Shield,InvBalD_Shield_Counterfeint,ELEMENT,1,1,1,Shield_Part_Element_Poison,,
+Counterfeint,Named Shield,InvBalD_Shield_Counterfeint,ELEMENT,1,1,1,Shield_Part_Element_Shock,,
+Counterfeint,Named Shield,InvBalD_Shield_Counterfeint,MATERIAL,1,1,1,Part_Shield_Mat_ANS_Counterfeint,,
