@@ -665,7 +665,7 @@ class InventorySerialDB(object):
         """
         if not self.initialized:
             with lzma.open(io.BytesIO(pkg_resources.resource_string(
-                    __name__, 'resources/inventoryserialdb.json.xz'
+                    __name__, '../db/inventoryserialdb.json.xz'
                     ))) as df:
                 self.db = json.load(df)
             self.initialized = True
@@ -749,7 +749,7 @@ class BalanceToName(object):
         """
         if not self.initialized:
             with lzma.open(io.BytesIO(pkg_resources.resource_string(
-                    __name__, 'resources/balance_name_mapping.json.xz'
+                    __name__, '../db/balance_name_mapping.json.xz'
                     ))) as df:
                 self.mapping = json.load(df)
             self.initialized = True
@@ -785,7 +785,7 @@ class BalanceToInvKey(object):
         """
         if not self.initialized:
             with lzma.open(io.BytesIO(pkg_resources.resource_string(
-                    __name__, 'resources/balance_to_inv_key.json.xz'
+                    __name__, '../db/balance_to_inv_key.json.xz'
                     ))) as df:
                 self.mapping = json.load(df)
             self.initialized = True
