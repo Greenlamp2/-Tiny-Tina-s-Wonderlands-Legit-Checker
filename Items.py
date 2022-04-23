@@ -60,7 +60,11 @@ class Items:
 
         for key, value in counts.items():
             min, max = self.get_min_max(item, key)
-            if value < min or value > max:
+            if value < min:
+                print("{} for {} should be {} min but there is only {}".format(key, item.balance_short, min, value))
+                return False
+            if value > max:
+                print("{} for {} should be {} max but there is {}".format(key, item.balance_short, max, value))
                 return False
 
         if self.has_excluders(item.balance_short, parts_list):
