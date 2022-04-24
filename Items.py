@@ -72,6 +72,7 @@ class Items:
         if not self.has_dependant(item.balance_short, parts_list):
             return False
 
+        print("{} is legit".format(item.balance_short))
         return True
 
     def get_excluders(self, balance, target):

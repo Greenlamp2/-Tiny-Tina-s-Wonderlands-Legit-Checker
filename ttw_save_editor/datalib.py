@@ -621,7 +621,7 @@ class BL3Serial(object):
         """
         Decodes a `BL3()`-encoded item serial into a binary serial
         """
-        if not new_data.lower().startswith('bl3(') or not new_data.endswith(')'):
+        if not new_data.lower().startswith('ttw(') or not new_data.endswith(')'):
             raise Exception('Unknown item format: {}'.format(new_data))
         encoded = new_data[4:-1]
         return base64.b64decode(encoded)

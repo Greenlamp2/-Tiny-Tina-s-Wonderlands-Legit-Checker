@@ -25,7 +25,5 @@ if __name__ == '__main__':
             print("--- No data about {}".format(item.balance_short))
             continue
         is_legit = db.is_legit(item)
-        if is_legit:
-            print("{} is legit".format(item.balance_short))
-        else:
+        if not is_legit:
             print("--------------------------------> {} is not legit <--------------------------------".format(item.balance_short))

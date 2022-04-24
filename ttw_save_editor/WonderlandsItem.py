@@ -1,4 +1,6 @@
 from ttw_save_editor import OakSave_pb2, OakShared_pb2, datalib
+from ttw_save_editor.datalib import BL3Serial
+
 
 class WonderlandsItem(datalib.BL3Serial):
     """
@@ -15,6 +17,12 @@ class WonderlandsItem(datalib.BL3Serial):
     def __init__(self, protobuf, datawrapper):
         self.protobuf = protobuf
         super().__init__(self.protobuf.item_serial_number, datawrapper)
+
+    @staticmethod
+    def reverse_item_serial(serial_number):
+        c = BL3Serial.decode_serial_base64(serial_number)
+        datawrapper = datalib.DataWrapper()
+        return datalib.BL3Serial(c, datawrapper)
 
     @staticmethod
     def create(datawrapper, serial_number, pickup_order_idx, skin_path='', is_seen=True, is_favorite=False, is_trash=False):
