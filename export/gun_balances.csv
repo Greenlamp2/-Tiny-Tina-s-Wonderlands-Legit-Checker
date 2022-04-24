@@ -6679,7 +6679,7 @@ DieVergent,,Named Weapon,Balance_SG_TED_DieVergent,BODY ACCESSORY,3,3,1,Part_SG_
 DieVergent,,Named Weapon,Balance_SG_TED_DieVergent,BODY ACCESSORY,3,3,1,Part_SG_TED_Body_B,Part_SG_TED_Body,
 DieVergent,,Named Weapon,Balance_SG_TED_DieVergent,BODY ACCESSORY,3,3,1,Part_SG_TED_Body_C,Part_SG_TED_Body,
 DieVergent,,Named Weapon,Balance_SG_TED_DieVergent,BARREL,1,1,1,Part_TED_Barrel_DieVergent,,
-DieVergent,,Named Weapon,Balance_SG_TED_DieVergent,BARREL 2,2,3,1,Part_SG_TED_Barrel_04_B_MIRV,,"Part_SG_TED_Barrel_01, Part_SG_TED_Barrel_02, Part_SG_TED_Barrel_03, Part_SG_TED_Barrel_04_B_Wings, Part_SG_TED_Barrel_04_B_Zeus"
+DieVergent,,Named Weapon,Balance_SG_TED_DieVergent,BARREL 2,1,1,1,Part_SG_TED_Barrel_04_B_MIRV,,"Part_SG_TED_Barrel_01, Part_SG_TED_Barrel_02, Part_SG_TED_Barrel_03, Part_SG_TED_Barrel_04_B_Wings, Part_SG_TED_Barrel_04_B_Zeus"
 DieVergent,,Named Weapon,Balance_SG_TED_DieVergent,GRIP,1,1,1,Part_SG_TED_Grip_02,,
 DieVergent,,Named Weapon,Balance_SG_TED_DieVergent,GRIP,1,1,1,Part_SG_TED_Grip_04,,
 DieVergent,,Named Weapon,Balance_SG_TED_DieVergent,GRIP,1,1,1,Part_SG_TED_Grip_05,,
