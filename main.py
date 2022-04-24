@@ -14,12 +14,10 @@ if __name__ == '__main__':
     db.load('export/melee_balances.csv', "MELEE")
 
     __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
-    save_a = WonderlandsSave(os.path.join(__location__, "saves_test/8.sav"))
+    save_a = WonderlandsSave(os.path.join(__location__, "saves_test/1.sav"))
     items = save_a.get_items()
     for item in items:
         balance = item.balance
-        if item.balance_short == "Bal_VLA_TwistDeluge":
-            print("")
         all_parts = db.get_parts(item.balance_short)
         if not all_parts:
             print("--- No data about {}".format(item.balance_short))

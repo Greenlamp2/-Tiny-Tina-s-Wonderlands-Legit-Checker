@@ -11,6 +11,18 @@ if __name__ == '__main__':
     db.load('export/amulet_balances.csv', "AMULETS")
     db.load('export/melee_balances.csv', "MELEE")
 
-    serial = "TTW(BQAAAAA7kIA745WggIKuqaIsOpIg1PBYMsODgBAAAAAAAKCMAQEB)"
+    # serial = "TTW(BQAAAAA7kIA745WggIKuqaIsOpIg1PBYMsODgBAAAAAAAKCMAQEB)"
+    # item = WonderlandsItem.reverse_item_serial(serial)
+    # is_legit = db.is_legit(item)
+    # serial = "TTW(BQAAAABZpoA745WggIquqaIsOpIg1PBYMsOpICAEAAAAAAAoY0BAAA==)"
+    # item = WonderlandsItem.reverse_item_serial(serial)
+    # is_legit = db.is_legit(item)
+    # serial = "TTW(BQAAAAAH/oA745WggIKuqaLoSIJQw2PJDKeCgBAAAAAAAKCMAQEB)"
+    # item = WonderlandsItem.reverse_item_serial(serial)
+    # is_legit = db.is_legit(item)
+    serial = "TTW(BQAAAABMOYC7JioAgTKAeEREJqAAAAAA)"
     item = WonderlandsItem.reverse_item_serial(serial)
     is_legit = db.is_legit(item)
+
+    # all_parts = db.get_parts(item.balance_short)
+    # print(all_parts)

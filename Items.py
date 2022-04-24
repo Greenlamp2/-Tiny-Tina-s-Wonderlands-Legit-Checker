@@ -56,6 +56,12 @@ class Items:
                 if not counts.get(cat, None):
                     counts[cat] = 0
                 counts[cat] = counts[cat] + 1
+            if part_name in parts_list \
+                    and "Minor" not in part_name \
+                    and "_Enh_" not in part_name \
+                    and "_PassiveSkill_" not in part_name:
+                print("{} for {} is present more than once".format(part_name, item.balance_short))
+                return False
             parts_list.append(part_name)
 
         for key, value in counts.items():
