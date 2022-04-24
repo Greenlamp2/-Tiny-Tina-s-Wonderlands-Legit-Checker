@@ -55,6 +55,22 @@ class Items:
         n = random.randint(0, len(pool)-1)
         return pool[n]
 
+    def get_random_type(self):
+        item_types = [
+            (0, 58.14),
+            (1, 23.26),
+            (2, 17.44),
+            (3, 1.16),
+        ]
+        pool = []
+        for key, percent in item_types:
+            occurence = int(percent * 100)
+            for i in range(0, occurence):
+                pool.append(key)
+
+        n = random.randint(0, len(pool) - 1)
+        return pool[n]
+
     def generate_random(self, item):
         item_parts = item.parts
         new_item_parts = []
