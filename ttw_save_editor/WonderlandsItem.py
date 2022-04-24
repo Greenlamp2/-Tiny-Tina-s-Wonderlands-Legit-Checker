@@ -1,3 +1,4 @@
+from Items import Items
 from ttw_save_editor import OakSave_pb2, OakShared_pb2, datalib
 from ttw_save_editor.datalib import BL3Serial
 
@@ -23,6 +24,21 @@ class WonderlandsItem(datalib.BL3Serial):
         c = BL3Serial.decode_serial_base64(serial_number)
         datawrapper = datalib.DataWrapper()
         return datalib.BL3Serial(c, datawrapper)
+
+    @staticmethod
+    def add_random(item):
+        db = Items()
+        db.load('export/gun_balances_long.csv', "GUNS")
+        db.load('export/shield_balances_long.csv', "SHIELDS")
+        db.load('export/pauldron_balances_long.csv', "PAULDRONS")
+        db.load('export/spell_balances_long.csv', "SPELLS")
+        db.load('export/ring_balances_long.csv', "RINGS")
+        db.load('export/amulet_balances_long.csv', "AMULETS")
+        db.load('export/melee_balances_long.csv', "MELEE")
+        # is_legit = db.is_legit(item)
+        new_parts = db.generate_random(item)
+        item.set_parts(new_parts)
+        return item
 
     @staticmethod
     def create(datawrapper, serial_number, pickup_order_idx, skin_path='', is_seen=True, is_favorite=False, is_trash=False):

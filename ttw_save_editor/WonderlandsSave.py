@@ -499,6 +499,13 @@ class WonderlandsSave(object):
     def set_money(self, amount):
         self.set_currency(MONEY, amount)
 
+    def generate_random_item(self, original_item, count):
+        for i in range(0, count):
+            new_item_raw = WonderlandsItem.add_random(original_item)
+            print("[{}] creating {}".format(i, new_item_raw.get_serial_base64()))
+            new_item = self.create_new_item(new_item_raw.get_serial_number())
+            self.add_item(new_item)
+
     def create_new_item(self, item_serial):
         """
         Creates a new item from the given binary `item_serial`, which can later

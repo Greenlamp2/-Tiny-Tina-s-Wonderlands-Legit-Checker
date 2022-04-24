@@ -562,6 +562,28 @@ class BL3Serial(object):
                 return None
         return self._generic_parts
 
+    def set_parts(self, parts):
+        if not self.parsed:
+            self._parse_serial()
+            if not self.can_parse:
+                return None
+
+        new_parts = []
+        cat = self._part_invkey
+        for elm in parts:
+            part_name = elm.parts.replace('\\', '/')
+            part_name_short = part_name.split('/')[-1]
+            full_part_name = '{}.{}'.format(part_name, part_name_short)
+            index = self.serial_db.get_part_index(cat, full_part_name)
+            new_parts.append([full_part_name, index])
+
+        self._parts = new_parts
+        self.changed_parts = True
+        # Re-serialize
+        self._deparse_serial()
+        self._update_superclass_serial()
+
+
     def set_generic_parts(self, gparts):
         if not self.parsed:
             self._parse_serial()
@@ -614,7 +636,7 @@ class BL3Serial(object):
         savegame.  Otherwise, it will use a seed of `0`, which will then be
         unencrypted.
         """
-        return 'BL3({})'.format(base64.b64encode(self.get_serial_number(orig_seed)).decode('latin1'))
+        return 'TTW({})'.format(base64.b64encode(self.get_serial_number(orig_seed)).decode('latin1'))
 
     @staticmethod
     def decode_serial_base64(new_data):

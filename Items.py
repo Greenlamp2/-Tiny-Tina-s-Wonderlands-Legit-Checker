@@ -1,4 +1,5 @@
 import csv
+import random
 
 
 class Items:
@@ -27,15 +28,16 @@ class Items:
         return ret
 
     def get_category(self, item, part):
-        for elm in self.items.get(item.balance_short, []):
-            if elm.parts == part:
+        parts = self.items.get(item.balance_short, [])
+        for elm in parts:
+            if elm.parts and elm.parts.replace('\\', '/').split('/')[-1] == part:
                 return elm.category
 
     def is_in_category(self, item, part, category):
         all_parts = self.get_parts(item.balance_short)
         parts = all_parts.get(category, [])
         for elm in parts:
-            if elm.parts == part:
+            if elm.parts and elm.parts.replace('\\', '/').split('/')[-1] == part:
                 return True
         return False
 
@@ -43,6 +45,27 @@ class Items:
         all_parts = self.get_parts(item.balance_short)
         part = all_parts[category][0]
         return part.min_parts, part.max_parts
+
+    def get_random_part(self, part_list):
+        pool = []
+        for part in part_list:
+            occurence = int(1.0 * part.weight * 100)
+            for i in range(0, occurence):
+                pool.append(part)
+        n = random.randint(0, len(pool)-1)
+        return pool[n]
+
+    def generate_random(self, item):
+        item_parts = item.parts
+        new_item_parts = []
+        all_parts = self.get_parts(item.balance_short)
+        for part, id in item_parts:
+            part_name = part.split('.')[-1]
+            category = self.get_category(item, part_name)
+            possible_parts = all_parts[category]
+            new_part = self.get_random_part(possible_parts)
+            new_item_parts.append(new_part)
+        return new_item_parts
 
     def is_legit(self, item):
         item_parts = item.parts
@@ -56,6 +79,9 @@ class Items:
                 if not counts.get(cat, None):
                     counts[cat] = 0
                 counts[cat] = counts[cat] + 1
+            else:
+                print("{} for {} is not a possible part".format(part_name, item.balance_short))
+                return False
             if part_name in parts_list \
                     and "Minor" not in part_name \
                     and "_Enh_" not in part_name \
@@ -128,7 +154,8 @@ class Item:
             self.manufacturer = row[0]
             self.gun_type = row[1]
             self.rarity = row[2]
-            self.balance = row[3].split('\\')[-1]
+            self.balance_long = row[3]
+            self.balance = self.balance_long.replace('\\', '/').split('/')[-1]
             self.category = row[4]
             self.min_parts = int(row[5])
             self.max_parts = int(row[6])
@@ -139,7 +166,8 @@ class Item:
         elif type == "SHIELDS":
             self.manufacturer = row[0]
             self.rarity = row[1]
-            self.balance = row[2].split('\\')[-1]
+            self.balance_long = row[2]
+            self.balance = self.balance_long.replace('\\', '/').split('/')[-1]
             self.category = row[3]
             self.min_parts = int(row[4])
             self.max_parts = int(row[5])
@@ -150,7 +178,8 @@ class Item:
         elif type == "PAULDRONS":
             self.manufacturer = row[0]
             self.rarity = row[1]
-            self.balance = row[2].split('\\')[-1]
+            self.balance_long = row[2]
+            self.balance = self.balance_long.replace('\\', '/').split('/')[-1]
             self.category = row[3]
             self.min_parts = int(row[4])
             self.max_parts = int(row[5])
@@ -162,7 +191,8 @@ class Item:
             self.name = row[0]
             self.type = row[1]
             self.rarity = row[2]
-            self.balance = row[3].split('\\')[-1]
+            self.balance_long = row[3]
+            self.balance = self.balance_long.replace('\\', '/').split('/')[-1]
             self.category = row[4]
             self.min_parts = int(row[5])
             self.max_parts = int(row[6])
@@ -174,7 +204,8 @@ class Item:
             self.name = row[0]
             self.type = row[1]
             self.rarity = row[2]
-            self.balance = row[3].split('\\')[-1]
+            self.balance_long = row[3]
+            self.balance = self.balance_long.replace('\\', '/').split('/')[-1]
             self.category = row[4]
             self.min_parts = int(row[5])
             self.max_parts = int(row[6])
@@ -186,7 +217,8 @@ class Item:
             self.name = row[0]
             self.type = row[1]
             self.rarity = row[2]
-            self.balance = row[3].split('\\')[-1]
+            self.balance_long = row[3]
+            self.balance = self.balance_long.replace('\\', '/').split('/')[-1]
             self.category = row[4]
             self.min_parts = int(row[5])
             self.max_parts = int(row[6])
@@ -194,10 +226,23 @@ class Item:
             self.parts = row[8] if row[8] != "None" else None
             self.dependencies = [e.strip() for e in row[9].split(',')] if row[9] != "" else []
             self.excluders = [e.strip() for e in row[10].split(',')] if row[10] != "" else []
+        elif type == 'AMULETS':
+            self.name = row[0]
+            self.rarity = row[1]
+            self.balance_long = row[2]
+            self.balance = self.balance_long.replace('\\', '/').split('/')[-1]
+            self.category = row[3]
+            self.min_parts = int(row[4])
+            self.max_parts = int(row[5])
+            self.weight = float(row[6])
+            self.parts = row[7] if row[7] != "None" else None
+            self.dependencies = [e.strip() for e in row[8].split(',')] if row[8] != "" else []
+            self.excluders = [e.strip() for e in row[9].split(',')] if row[9] != "" else []
         else:
             self.manufacturer = row[0]
             self.rarity = row[1]
-            self.balance = row[2].split('\\')[-1]
+            self.balance_long = row[3]
+            self.balance = self.balance_long.replace('\\', '/').split('/')[-1]
             self.category = row[3]
             self.min_parts = int(row[4])
             self.max_parts = int(row[5])
