@@ -67,7 +67,7 @@ class Items:
             new_item_parts.append(new_part)
         return new_item_parts
 
-    def is_legit(self, item):
+    def is_legit(self, item, silent=False):
         item_parts = item.parts
         counts = {}
         parts_list = []
@@ -80,23 +80,27 @@ class Items:
                     counts[cat] = 0
                 counts[cat] = counts[cat] + 1
             else:
-                print("{} for {} is not a possible part".format(part_name, item.balance_short))
+                if not silent:
+                    print("{} for {} is not a possible part".format(part_name, item.balance_short))
                 return False
             if part_name in parts_list \
                     and "Minor" not in part_name \
                     and "_Enh_" not in part_name \
                     and "_PassiveSkill_" not in part_name:
-                print("{} for {} is present more than once".format(part_name, item.balance_short))
+                if not silent:
+                    print("{} for {} is present more than once".format(part_name, item.balance_short))
                 return False
             parts_list.append(part_name)
 
         for key, value in counts.items():
             min, max = self.get_min_max(item, key)
             if value < min:
-                print("{} for {} should be {} min but there is only {}".format(key, item.balance_short, min, value))
+                if not silent:
+                    print("{} for {} should be {} min but there is only {}".format(key, item.balance_short, min, value))
                 return False
             if value > max:
-                print("{} for {} should be {} max but there is {}".format(key, item.balance_short, max, value))
+                if not silent:
+                    print("{} for {} should be {} max but there is {}".format(key, item.balance_short, max, value))
                 return False
 
         if self.has_excluders(item.balance_short, parts_list):
@@ -104,7 +108,8 @@ class Items:
         if not self.has_dependant(item.balance_short, parts_list):
             return False
 
-        print("{} is legit".format(item.balance_short))
+        if not silent:
+            print("{} is legit".format(item.balance_short))
         return True
 
     def get_excluders(self, balance, target):

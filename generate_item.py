@@ -22,6 +22,3 @@ if __name__ == '__main__':
     save_a = WonderlandsSave(os.path.join(__location__, "saves_test/9.sav"))
     save_a.generate_random_item(item, 20)
     save_a.save_to("saves_test/9.sav")
-
-    # all_parts = db.get_parts(item.balance_short)
-    # print(all_parts)
