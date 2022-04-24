@@ -395,6 +395,8 @@ class BL3Serial(object):
             else:
                 self._rerolled = 0
 
+            self.item_type = bits.eat(3)
+
             # And read in our remaining data.  If there's more than 7 bits
             # left, we've done something wrong, because it should only be
             # zero-padding after all the "real" data is in place.
@@ -475,6 +477,7 @@ class BL3Serial(object):
             # Then, if we're a v4 serial, the number of times we've been rerolled
             if self.serial_version >= 4:
                 bits.append_value(self._rerolled, 8)
+            bits.append_value(self.item_type, 3)
 
         else:
             # Otherwise, we can re-use our original remaining data
@@ -561,6 +564,17 @@ class BL3Serial(object):
             if not self.can_parse:
                 return None
         return self._generic_parts
+
+    def set_item_type(self, item_type):
+        if not self.parsed:
+            self._parse_serial()
+            if not self.can_parse:
+                return None
+        self.item_type = item_type
+        self.changed_parts = True
+        # Re-serialize
+        self._deparse_serial()
+        self._update_superclass_serial()
 
     def set_parts(self, parts):
         if not self.parsed:

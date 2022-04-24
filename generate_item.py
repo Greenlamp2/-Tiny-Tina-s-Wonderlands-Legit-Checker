@@ -20,5 +20,5 @@ if __name__ == '__main__':
 
     __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
     save_a = WonderlandsSave(os.path.join(__location__, "saves_test/9.sav"))
-    save_a.generate_random_item(item, 20)
+    save_a.generate_random_item(item, 1)
     save_a.save_to("saves_test/9.sav")

@@ -38,6 +38,7 @@ class WonderlandsItem(datalib.BL3Serial):
         db.load('export/melee_balances_long.csv', "MELEE")
         new_parts = db.generate_random(item)
         item.set_parts(new_parts)
+        item.set_item_type(3)
         if db.is_legit(item, silent=True):
             return item
         else:
