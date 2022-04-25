@@ -389,8 +389,6 @@ class Items:
         if not self.has_dependant(item.balance_short, parts_list):
             return False
 
-        # if self.has_wrong_clusters(item.balance_short, parts_list_long):
-        #     return False
         if "/Pauldrons" in item.balance:
             if self.has_wrong_pauldron_stats(item.balance_short, parts_list_long):
                 return False
@@ -413,7 +411,7 @@ class Items:
                 return part.dependencies
         return []
 
-    def has_wrong_clusters(self, balance, parts_target):
+    def has_wrong_clusters(self, balance, parts_target, silent=False):
         for part in parts_target:
             if "/PlayerStat/" not in part:
                 continue
@@ -424,10 +422,11 @@ class Items:
                 part2_name = part2.split("PlayerStat_")[1].split("_")[0]
                 cluster = self.clusters[part_name]
                 if part2_name in cluster:
-                    print('{} is a passive stat in the same cluster as {}'.format(part_name, part2_name))
+                    if not silent:
+                        print('{} is a passive stat in the same cluster as {}'.format(part_name, part2_name))
                     return False
 
-    def has_wrong_pauldron_stats(self, balance, parts_target):
+    def has_wrong_pauldron_stats(self, balance, parts_target, silent=False):
         characterA = None
         characterB = None
         weightA = None
@@ -463,22 +462,28 @@ class Items:
                 overrides.append(override.split("_")[0])
 
         if rarity != "Legendary":
-            print("This is not a legendary, i don't check it")
+            if not silent:
+                print("This is not a legendary, i don't check it")
             return False
         if self.class_weights[characterA] != weightA:
-            print('{} should have a base part {} but got {}'.format(characterA, self.class_weights[characterA], weightA))
+            if not silent:
+                print('{} should have a base part {} but got {}'.format(characterA, self.class_weights[characterA], weightA))
             return True
         if self.class_weights[characterB] != weightB:
-            print('{} should have a base part {} but got {}'.format(characterB, self.class_weights[characterB], weightB))
+            if not silent:
+                print('{} should have a base part {} but got {}'.format(characterB, self.class_weights[characterB], weightB))
             return True
         if combo != "{}_{}".format(characterA, characterB):
-            print('skill combo should be {}_{} but is {}'.format(characterA, characterB, combo))
+            if not silent:
+                print('skill combo should be {}_{} but is {}'.format(characterA, characterB, combo))
             return True
         if unique_part > 1:
-            print("There is more than 1 unique part")
+            if not silent:
+                print("There is more than 1 unique part")
             return True
         if self.spread[rarity] != count_part:
-            print('Amount of skill part should be {} but is {}'.format(self.spread[rarity], count_part))
+            if not silent:
+                print('Amount of skill part should be {} but is {}'.format(self.spread[rarity], count_part))
             return True
 
         for part in overrides:
@@ -487,7 +492,8 @@ class Items:
                     continue
                 cluster = self.clusters[part]
                 if part2 in cluster:
-                    print('{} is a passive stat in the same cluster as {}'.format(part, part2))
+                    if not silent:
+                        print('{} is a passive stat in the same cluster as {}'.format(part, part2))
                     return True
 
         skill_counts = {}
@@ -504,7 +510,8 @@ class Items:
                 skill_counts[skill] += 1
 
             if skill not in possible_skills:
-                print("{} should not be present with {} as primary and {} as secondary".format(skill, characterA, characterB))
+                if not silent:
+                    print("{} should not be present with {} as primary and {} as secondary".format(skill, characterA, characterB))
                 return True
 
         for key, value in skill_counts.items():
@@ -513,12 +520,14 @@ class Items:
             index = self.get_index_passive_raw(character, passive)
 
             if not self.can_roll[character][index]:
-                print("{} should not be present on a mod class for {}".format(key, character))
+                if not silent:
+                    print("{} should not be present on a mod class for {}".format(key, character))
                 return True
 
             a = self.levels[character]
             if value > self.levels[character][index]:
-                print("{} can be max level {} but is {}".format(key, self.levels[character][index], value))
+                if not silent:
+                    print("{} can be max level {} but is {}".format(key, self.levels[character][index], value))
                 return True
         return False
 
