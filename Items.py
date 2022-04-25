@@ -1,6 +1,9 @@
 import csv
 import random
 
+from ttw_save_editor import datalib
+from ttw_save_editor.datalib import BL3Serial
+
 
 class Items:
     def __init__(self):
@@ -49,6 +52,8 @@ class Items:
     def get_random_part(self, part_list):
         pool = []
         for part in part_list:
+            if not part.parts:
+                continue
             occurence = int(1.0 * part.weight * 100)
             for i in range(0, occurence):
                 pool.append(part)
@@ -71,7 +76,7 @@ class Items:
         n = random.randint(0, len(pool) - 1)
         return pool[n]
 
-    def generate_random(self, item):
+    def get_legit_random_parts(self, item):
         item_parts = item.parts
         new_item_parts = []
         all_parts = self.get_parts(item.balance_short)
@@ -82,6 +87,23 @@ class Items:
             new_part = self.get_random_part(possible_parts)
             new_item_parts.append(new_part)
         return new_item_parts
+
+    def reverse_item_serial(self, serial_number):
+        c = BL3Serial.decode_serial_base64(serial_number)
+        datawrapper = datalib.DataWrapper()
+        return datalib.BL3Serial(c, datawrapper)
+
+    def generate_random(self, item):
+        original_item = self.reverse_item_serial(item.get_serial_base64())
+        legit = False
+        while not legit:
+            new_parts = self.get_legit_random_parts(original_item)
+            item.set_parts(new_parts)
+            item_type = self.get_random_type()
+            item.set_item_type(item_type)
+            if self.is_legit(item, silent=True):
+                legit = True
+        return item
 
     def is_legit(self, item, silent=False):
         item_parts = item.parts
