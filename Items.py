@@ -275,8 +275,12 @@ class Items:
 
     def get_min_max(self, item, category):
         all_parts = self.get_parts(item.balance_short)
+        to_sub = 0
+        for elm in all_parts[category]:
+            if not elm.parts:
+                to_sub += 1
         part = all_parts[category][0]
-        return part.min_parts, part.max_parts
+        return part.min_parts-to_sub, part.max_parts
 
     def get_random_part(self, part_list):
         pool = []

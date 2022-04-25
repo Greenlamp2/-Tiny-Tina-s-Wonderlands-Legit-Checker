@@ -5448,7 +5448,7 @@ HawkinsWrath,,Named Weapon,Balance_SG_Torgue_05_HawkinsWrath,SCOPE,1,1,1,Part_SG
 HawkinsWrath,,Named Weapon,Balance_SG_Torgue_05_HawkinsWrath,SCOPE,1,1,1,Part_SG_Torgue_Scope_03,,
 HawkinsWrath,,Named Weapon,Balance_SG_Torgue_05_HawkinsWrath,ELEMENTAL,1,1,0.25,Part_SG_Torgue_Ele_Fire,,
 HawkinsWrath,,Named Weapon,Balance_SG_Torgue_05_HawkinsWrath,MATERIAL,1,1,1,Part_SG_Torgue_Material_HawkinsWrath,,
-Catatumbo,,Named Weapon,Balance_PS_JAK_05_Catatumbo,BODY,2,2,1,Part_PS_JAK_Body,,
+Catatumbo,,Named Weapon,Balance_PS_JAK_05_Catatumbo,BODY,1,1,1,Part_PS_JAK_Body,,
 Catatumbo,,Named Weapon,Balance_PS_JAK_05_Catatumbo,BODY ACCESSORY,3,3,1,Part_PS_JAK_Body_A,Part_PS_JAK_Body,
 Catatumbo,,Named Weapon,Balance_PS_JAK_05_Catatumbo,BODY ACCESSORY,3,3,1,Part_PS_JAK_Body_B,Part_PS_JAK_Body,
 Catatumbo,,Named Weapon,Balance_PS_JAK_05_Catatumbo,BODY ACCESSORY,3,3,1,Part_PS_JAK_Body_C,Part_PS_JAK_Body,
