@@ -13,13 +13,19 @@ if __name__ == '__main__':
     db.load('export/amulet_balances.csv', "AMULETS")
     db.load('export/melee_balances.csv', "MELEE")
 
-    __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
-    save_a = WonderlandsSave(os.path.join(__location__, "saves_test/1.sav"))
-    items = save_a.get_items()
+    # db.reverse_item_serial("SERIAL"),
+    items = [
+        db.reverse_item_serial("TTW(BQAAAACcc4C6Kwbhh5oMMJCeCj+o4UhPWJGFFSedJEcSnEKqRDMYCAAAAAAA)"),
+        db.reverse_item_serial("TTW(BQAAAAAH74C6KgbBh4oEEHAeDHfLwUjmnIuluViag1GgnDSDgQAAAAAAAA==)"),
+        db.reverse_item_serial("TTW(BQAAAACZY4A6AQXBh4oEEHAeDHfLoTXmnIslFueaI9FEFjWDgQAAAAAAAA==)"),
+        db.reverse_item_serial("TTW(BQAAAAD37YC6AwXBh4oMMJCeCn2rQTZPWGFFFlmcFJERFjWDgQAAAAAAAA==)"),
+        db.reverse_item_serial("TTW(BQAAAADVOoA6AQXBh4oMMHCeC33DobVR8lOllVZaKVHEEDWDgQAAAAAAAA==)"),
+        db.reverse_item_serial("TTW(BQAAAABK1YC6Kwbhh5oMMJCeCj+o4UhPZJGFFSdZUUmjr3IKSDMYCAAAAAAA)"),
+        db.reverse_item_serial("TTW(BQAAAABmvoC6KgbBh4oMMJCeCn2rwUhPnJRFFlmcFHFFEDWDgQAAAAAIAA==)"),
+    ]
+
     for item in items:
         balance = item.balance
-        # if "pauldron" in item.balance.lower():
-        #     print(db.get_serial_string(item))
         all_parts = db.get_parts(item.balance_short)
         if not all_parts:
             print("--- No data about {}".format(item.balance_short))
