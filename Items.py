@@ -363,6 +363,8 @@ class Items:
                 if not silent:
                     print("{} for {} is not a possible part as {}".format(part_name, item.balance_short, cat))
                 return False
+            # you can roll 2 to 3 minor stats
+            # you can have duplicates of minor stats up to 3x
             if part_name in parts_list \
                     and "Minor" not in part_name \
                     and "_Enh_" not in part_name \

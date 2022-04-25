@@ -24,7 +24,7 @@ if __name__ == '__main__':
     #     db.reverse_item_serial("TTW(BQAAAABmvoC6KgbBh4oMMJCeCn2rwUhPnJRFFlmcFHFFEDWDgQAAAAAIAA==)"),
     # ]
     items = [
-        db.reverse_item_serial("TTW(BQAAAACcc4C6Kwbhh5oMMJCeCj+o4UhPWJGFFSedJEcSnEKqRDMYCAAAAAAA)"),
+        db.reverse_item_serial("TTW(BQAAAACKJIA7LAbhh4oMGFAeCnWzQclRYrkvllBaGskYzaaDgQAAAAAY)"),
     ]
 
     for item in items:
