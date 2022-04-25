@@ -8,6 +8,7 @@ from ttw_save_editor.datalib import BL3Serial
 class Items:
     def __init__(self):
         self.items = {}
+        self.clusters = {}
         self.clusters_raw = [
             [
                 "MoveSpeed",
@@ -37,6 +38,37 @@ class Items:
             ]
         ]
         self.passives_raw = {
+            "Rogue": {
+                "Follow Up": "Passive_01",
+                "Sneak Attack": "Passive_02",
+                "Alchemical Agent": "Passive_03",
+                "Nimble Finger": "Passive_04",
+                "Swift Death": "Passive_05",
+                "Potent Poisons": "Passive_06",
+                "Arsenal": "Passive_07",
+                "Shadow Step": "Passive_08",
+                "Haste": "Passive_10",
+                "Contagion": "Passive_12",
+                "Elusive": "Passive_13",
+                "A Thousand Cuts": "Passive_14",
+                "Exploit Weakness": "Passive_15",
+                "Executioner's Blade": "Passive_17",
+            },
+            "GunMage": {
+                "Font of Mana": "Passive_01",
+                "Glass Cannon": "Passive_02",
+                "Double Knot": "Passive_08",
+                "Spell Sniper": "Passive_09",
+                "Imbued Weapon": "Passive_13",
+                "Prestidigitation": "Passive_14",
+                "Sever the Thread": "Passive_15",
+                "Just Warming Up": "Passive_16",
+                "High Thread Count": "Passive_17",
+                "War Caster": "Passive_18",
+                "One Slot, One Kill": "Passive_19",
+                "Mage Armor": "Passive_20",
+                "Magic Bullets": "Passive_21",
+            },
             "Graveborn": {
                 "Mortal Vessel": "Passive_01",
                 "Dark Pact": "Passive_02",
@@ -101,37 +133,30 @@ class Items:
                 "Storm Breath": "Passive_30",
             }
         }
-        self.can_roll = {
-            "Barbarian": [1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0],
-            "Clawbringer": [1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1],
-            "Graveborn": [1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0],
-            "Spellshot": [1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1],
-            "Ranger": [1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0],
-            "Rogue": [1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0],
-        }
+        self.combos = {}
         self.combos_raw = {
             "Barbarian": {
                 "Clawbringer": ["Savagery", "Blast Chill", "Dragon Aura"],
                 "Graveborn": ["Ancient Fury", "Unyielding", "Blast Gasp"],
-                "Spellshot": ["Ancestral Frost", "Ice Breaker", "Imbued Weapon"],
+                "GunMage": ["Ancestral Frost", "Ice Breaker", "Imbued Weapon"],
                 "Ranger": ["Ice Breaker", "Cold Snap", "Affinity"],
                 "Rogue": ["Iron Squall", "The Old Ways", "Follow Up"],
             },
             "Clawbringer": {
                 "Barbarian": ["Rebuke", "Oath of Thunder", "Iron Squall"],
                 "Graveborn": ["Friend to Flame", "Oath of Fire", "Harvest"],
-                "Spellshot": ["Radiance", "Dedication", "Mage Armor"],
+                "GunMage": ["Radiance", "Dedication", "Mage Armor"],
                 "Ranger": ["Blasthamut's Favor", "Oath of Fire", "Called Shot"],
-                "Rogue": ["Awe", "Oah of Thunder", "Nimble Fingers"],
+                "Rogue": ["Awe", "Oath of Thunder", "Nimble Finger"],
             },
             "Graveborn": {
                 "Barbarian": ["Mortal Vessel", "Ascension", "Blood Frenzy"],
                 "Clawbringer": ["Essence Drain", "Blast Gasp", "Dragon Aura"],
-                "Spellshot": ["Essence Drain", "Ascension", "War Caster"],
+                "GunMage": ["Essence Drain", "Ascension", "War Caster"],
                 "Ranger": ["Faithful Thralls", "Dark Hydra", "Thrill of the Hunt"],
                 "Rogue": ["Dark Pact", "Stain of the Soul", "Contagion"],
             },
-            "Spellshot": {
+            "GunMage": {
                 "Barbarian": ["Just Warming Up", "High Thread Count", "Instinct"],
                 "Clawbringer": ["Just Warming Up", "Font of Mana", "Awe"],
                 "Graveborn": ["Spell Sniper", "Font of Mana", "Stain of the Soul"],
@@ -142,19 +167,47 @@ class Items:
                 "Barbarian": ["Bounty of the Hunt", "Wrath of Nature", "Iron Squall"],
                 "Clawbringer": ["Kindred Heart", "Bullseye", "Friend to Flame"],
                 "Graveborn": ["Kindred Heart", "Windrunner", "Harvest"],
-                "Spellshot": ["Called Shot", "Eagle Eye", "Imbued Weapon"],
+                "GunMage": ["Called Shot", "Eagle Eye", "Imbued Weapon"],
                 "Rogue": ["Bullseye", "Eagle Eye", "A Thousand Cuts"],
             },
             "Rogue": {
                 "Barbarian": ["Haste", "Swift Death", "Cold Snap"],
-                "Clawbringer": ["Exploit Their Weakness", "Potent Poisons", "Dragon Aura"],
+                "Clawbringer": ["Exploit Weakness", "Potent Poisons", "Dragon Aura"],
                 "Graveborn": ["Arsenal", "Sneak Attack", "Lord of Edges"],
-                "Spellshot": ["Nimble Fingers", "Arsenal", "Magic Bullets"],
+                "GunMage": ["Nimble Finger", "Arsenal", "Magic Bullets"],
                 "Ranger": ["Swift Death", "Follow Up", "Windrunner"],
             },
         }
-        self.clusters = {}
+        self.can_roll = {
+            "Barbarian": [1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0],
+            "Clawbringer": [1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1],
+            "Graveborn": [1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0],
+            "GunMage": [1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1],
+            "Ranger": [1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0],
+            "Rogue": [1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0],
+        }
+        self.levels = {
+            "Barbarian": [3, 5, 1, 3, 5, 5, 5, 1, 3, 3, 1, 5, 3, 1],
+            "Clawbringer": [5, 1, 3, 5, 5, 5, 1, 5, 1, 5, 1, 1, 3],
+            "Graveborn": [5, 5, 3, 3, 5, 1, 3, 1, 1, 5, 3, 5, 3, 1],
+            "GunMage": [5, 5, 3, 3, 5, 3, 3, 1, 3, 1, 5, 5, 1, 1],
+            "Ranger": [5, 5, 5, 3, 1, 5, 1, 3, 5, 1, 3, 3, 3, 1],
+            "Rogue": [],
+        }
+        self.base_weights = {
+            "light": 0,
+            "medium": 0,
+            "heavy": 0,
+        }
+        self.class_weights = {
+            "GunMage": "Light",
+            "Ranger": "Medium",
+            "Rogue": "Medium",
+            "Barbarian": "Heavy",
+        }
+
         self.compute_clusters()
+        self.compute_skill_combos()
 
     def compute_clusters(self):
         for cluster in self.clusters_raw:
@@ -165,6 +218,21 @@ class Items:
                     if elm not in self.clusters:
                         self.clusters[elm] = []
                     self.clusters[elm].append(elm2)
+
+    def compute_skill_combos(self):
+        self.combos = {}
+        for characterA in self.combos_raw:
+            for characterB in self.combos_raw[characterA]:
+                skills = self.combos_raw[characterA][characterB]
+                skillA = skills[0]
+                skillA_key = self.passives_raw[characterA][skillA]
+                skillB = skills[1]
+                skillB_key = self.passives_raw[characterA][skillB]
+                skillC = skills[2]
+                skillC_key = self.passives_raw[characterB][skillC]
+                if characterA not in self.combos:
+                    self.combos[characterA] = {}
+                self.combos[characterA][characterB] = [skillA_key, skillB_key, skillC_key]
 
     def load(self, filename, type):
         with open(filename, newline='\n') as file:
@@ -308,7 +376,9 @@ class Items:
         if not self.has_dependant(item.balance_short, parts_list):
             return False
 
-        if self.has_wrong_clusters(parts_list_long):
+        if self.has_wrong_clusters(item.balance_short, parts_list_long):
+            return False
+        if self.has_wrong_combos(item.balance_short, parts_list_long):
             return False
 
         if not silent:
@@ -329,7 +399,7 @@ class Items:
                 return part.dependencies
         return []
 
-    def has_wrong_clusters(self, parts_target):
+    def has_wrong_clusters(self, balance, parts_target):
         for part in parts_target:
             if "/PlayerStat/" not in part:
                 continue
@@ -342,6 +412,22 @@ class Items:
                 if part2_name in cluster:
                     print('{} is a parssive stat in the same cluster as{}'.format(part_name, part2_name))
                     return False
+
+    def has_wrong_combos(self, balance, parts_target):
+        characterA = None
+        characterB = None
+        weightA = None
+        weightB = None
+        for part in parts_target:
+            if "/Class/Part" in part:
+                characterA = part.split("Primary_")[1].split(".")[0]
+            if "/Class/Secondary/Part" in part:
+                characterB = part.split("Secondary_")[1].split(".")[0]
+            if "/Base/Part_" in part:
+                weightA = part.split("Base_")[1].split(".")[0]
+            if "/Base_Secondary/Part_" in part:
+                weightB = part.split("Base_Secondary_")[1].split(".")[0]
+        print("")
 
     def has_excluders(self, balance, parts_target):
         for part in parts_target:
