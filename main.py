@@ -17,6 +17,7 @@ if __name__ == '__main__':
     save_a = WonderlandsSave(os.path.join(__location__, "saves_test/1.sav"))
     items = save_a.get_items()
     for item in items:
+        # print(item.get_serial_base64())
         balance = item.balance
         # if "pauldron" in item.balance.lower():
         #     print(db.get_serial_string(item))

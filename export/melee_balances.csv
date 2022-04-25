@@ -12,8 +12,8 @@ BansheeClaw,,Named Melee Weapon,Balance_M_Sword2H_BansheeClaw,HILT MOD,1,1,0.333
 BansheeClaw,,Named Melee Weapon,Balance_M_Sword2H_BansheeClaw,RARITY,1,1,1,Part_M_Sword2H_03_Rare,,
 BansheeClaw,,Named Melee Weapon,Balance_M_Sword2H_BansheeClaw,MATERIAL,1,1,1,Part_2HSword_Material_04_VeryRare,,
 BodySpray,,Named Melee Weapon,Balance_M_Axe_BodySpray,BODY,1,1,1,Part_M_Axe_Blade_BodySpray,,
-BodySpray,,Named Melee Weapon,Balance_M_Axe_BodySpray,BLADE,3,3,1,Part_M_Axe_Blade_02_A,,"Part_M_Axe_Blade_01, Part_M_Axe_Blade_03"
-BodySpray,,Named Melee Weapon,Balance_M_Axe_BodySpray,BLADE,3,3,1,Part_M_Axe_Blade_01_B,,"Part_M_Axe_Blade_02, Part_M_Axe_Blade_03"
+BodySpray,,Named Melee Weapon,Balance_M_Axe_BodySpray,BLADE,2,2,1,Part_M_Axe_Blade_02_A,,"Part_M_Axe_Blade_01, Part_M_Axe_Blade_03"
+BodySpray,,Named Melee Weapon,Balance_M_Axe_BodySpray,BLADE,2,2,1,Part_M_Axe_Blade_01_B,,"Part_M_Axe_Blade_02, Part_M_Axe_Blade_03"
 BodySpray,,Named Melee Weapon,Balance_M_Axe_BodySpray,HILT,1,1,1,Part_M_Axe_Hilt_02,,
 BodySpray,,Named Melee Weapon,Balance_M_Axe_BodySpray,HILT MOD,1,1,1,Part_M_Axe_HiltMod_05_Mission,,
 BodySpray,,Named Melee Weapon,Balance_M_Axe_BodySpray,RARITY,1,1,1,Part_M_Axe_03_Rare,,

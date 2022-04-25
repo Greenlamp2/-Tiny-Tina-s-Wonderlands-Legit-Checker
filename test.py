@@ -14,14 +14,17 @@ if __name__ == '__main__':
     db.load('export/melee_balances.csv', "MELEE")
 
     # db.reverse_item_serial("SERIAL"),
+    # items = [
+    #     db.reverse_item_serial("TTW(BQAAAACcc4C6Kwbhh5oMMJCeCj+o4UhPWJGFFSedJEcSnEKqRDMYCAAAAAAA)"),
+    #     db.reverse_item_serial("TTW(BQAAAAAH74C6KgbBh4oEEHAeDHfLwUjmnIuluViag1GgnDSDgQAAAAAAAA==)"),
+    #     db.reverse_item_serial("TTW(BQAAAACZY4A6AQXBh4oEEHAeDHfLoTXmnIslFueaI9FEFjWDgQAAAAAAAA==)"),
+    #     db.reverse_item_serial("TTW(BQAAAAD37YC6AwXBh4oMMJCeCn2rQTZPWGFFFlmcFJERFjWDgQAAAAAAAA==)"),
+    #     db.reverse_item_serial("TTW(BQAAAADVOoA6AQXBh4oMMHCeC33DobVR8lOllVZaKVHEEDWDgQAAAAAAAA==)"),
+    #     db.reverse_item_serial("TTW(BQAAAABK1YC6Kwbhh5oMMJCeCj+o4UhPZJGFFSdZUUmjr3IKSDMYCAAAAAAA)"),
+    #     db.reverse_item_serial("TTW(BQAAAABmvoC6KgbBh4oMMJCeCn2rwUhPnJRFFlmcFHFFEDWDgQAAAAAIAA==)"),
+    # ]
     items = [
         db.reverse_item_serial("TTW(BQAAAACcc4C6Kwbhh5oMMJCeCj+o4UhPWJGFFSedJEcSnEKqRDMYCAAAAAAA)"),
-        db.reverse_item_serial("TTW(BQAAAAAH74C6KgbBh4oEEHAeDHfLwUjmnIuluViag1GgnDSDgQAAAAAAAA==)"),
-        db.reverse_item_serial("TTW(BQAAAACZY4A6AQXBh4oEEHAeDHfLoTXmnIslFueaI9FEFjWDgQAAAAAAAA==)"),
-        db.reverse_item_serial("TTW(BQAAAAD37YC6AwXBh4oMMJCeCn2rQTZPWGFFFlmcFJERFjWDgQAAAAAAAA==)"),
-        db.reverse_item_serial("TTW(BQAAAADVOoA6AQXBh4oMMHCeC33DobVR8lOllVZaKVHEEDWDgQAAAAAAAA==)"),
-        db.reverse_item_serial("TTW(BQAAAABK1YC6Kwbhh5oMMJCeCj+o4UhPZJGFFSdZUUmjr3IKSDMYCAAAAAAA)"),
-        db.reverse_item_serial("TTW(BQAAAABmvoC6KgbBh4oMMJCeCn2rwUhPnJRFFlmcFHFFEDWDgQAAAAAIAA==)"),
     ]
 
     for item in items:

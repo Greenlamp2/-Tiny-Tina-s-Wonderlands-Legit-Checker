@@ -6757,8 +6757,8 @@ IronSides,,Named Weapon,Balance_SR_JAK_05_IronSides,STOCK ACCESSORY,1,1,1,Part_S
 IronSides,,Named Weapon,Balance_SR_JAK_05_IronSides,FOREGRIP,1,1,1,Part_SR_JAK_Foregrip_04,,Part_SR_JAK_Barrel_04
 IronSides,,Named Weapon,Balance_SR_JAK_05_IronSides,MATERIAL,1,1,1,Part_SR_JAK_Mat_Ironsides,,
 Mistrial,,Named Weapon,Balance_DAL_AR_Mistrial,BODY,1,1,1,Part_DAL_AR_Body,,
-Mistrial,,Named Weapon,Balance_DAL_AR_Mistrial,BODY ACCESSORY,3,3,1,Part_DAL_AR_Body_A,Part_DAL_AR_Body,
-Mistrial,,Named Weapon,Balance_DAL_AR_Mistrial,BODY ACCESSORY,3,3,1,Part_DAL_AR_Body_C,Part_DAL_AR_Body,
+Mistrial,,Named Weapon,Balance_DAL_AR_Mistrial,BODY ACCESSORY,2,2,1,Part_DAL_AR_Body_A,Part_DAL_AR_Body,
+Mistrial,,Named Weapon,Balance_DAL_AR_Mistrial,BODY ACCESSORY,2,2,1,Part_DAL_AR_Body_C,Part_DAL_AR_Body,
 Mistrial,,Named Weapon,Balance_DAL_AR_Mistrial,BARREL,1,1,1,Part_DAL_AR_Barrel_Mistrial,,
 Mistrial,,Named Weapon,Balance_DAL_AR_Mistrial,BARREL 2,3,3,1,Part_DAL_AR_Barrel_03_A,,"Part_DAL_AR_Barrel_01, Part_DAL_AR_Barrel_02, Part_DAL_AR_Barrel_04"
 Mistrial,,Named Weapon,Balance_DAL_AR_Mistrial,BARREL 2,3,3,1,Part_DAL_AR_Barrel_03_B,,"Part_DAL_AR_Barrel_01, Part_DAL_AR_Barrel_02, Part_DAL_AR_Barrel_04"
