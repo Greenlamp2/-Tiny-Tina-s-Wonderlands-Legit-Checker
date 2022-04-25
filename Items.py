@@ -117,7 +117,7 @@ class Items:
                 "Called Shot": "Passive_15",
                 "Play the Angles": "Passive_17",
             },
-            "Clawbringer": {
+            "Necromancer": {
                 "Oath of Fire": "Passive_03",
                 "Friend to Flame": "Passive_04",
                 "Radiance": "Passive_14",
@@ -136,13 +136,13 @@ class Items:
         self.combos = {}
         self.combos_raw = {
             "Barbarian": {
-                "Clawbringer": ["Savagery", "Blast Chill", "Dragon Aura"],
+                "Necromancer": ["Savagery", "Blast Chill", "Dragon Aura"],
                 "Graveborn": ["Ancient Fury", "Unyielding", "Blast Gasp"],
                 "GunMage": ["Ancestral Frost", "Ice Breaker", "Imbued Weapon"],
                 "Ranger": ["Ice Breaker", "Cold Snap", "Affinity"],
                 "Rogue": ["Iron Squall", "The Old Ways", "Follow Up"],
             },
-            "Clawbringer": {
+            "Necromancer": {
                 "Barbarian": ["Rebuke", "Oath of Thunder", "Iron Squall"],
                 "Graveborn": ["Friend to Flame", "Oath of Fire", "Harvest"],
                 "GunMage": ["Radiance", "Dedication", "Mage Armor"],
@@ -151,48 +151,48 @@ class Items:
             },
             "Graveborn": {
                 "Barbarian": ["Mortal Vessel", "Ascension", "Blood Frenzy"],
-                "Clawbringer": ["Essence Drain", "Blast Gasp", "Dragon Aura"],
+                "Necromancer": ["Essence Drain", "Blast Gasp", "Dragon Aura"],
                 "GunMage": ["Essence Drain", "Ascension", "War Caster"],
                 "Ranger": ["Faithful Thralls", "Dark Hydra", "Thrill of the Hunt"],
                 "Rogue": ["Dark Pact", "Stain of the Soul", "Contagion"],
             },
             "GunMage": {
                 "Barbarian": ["Just Warming Up", "High Thread Count", "Instinct"],
-                "Clawbringer": ["Just Warming Up", "Font of Mana", "Awe"],
+                "Necromancer": ["Just Warming Up", "Font of Mana", "Awe"],
                 "Graveborn": ["Spell Sniper", "Font of Mana", "Stain of the Soul"],
                 "Ranger": ["High Thread Count", "Prestidigitation", "Windrunner"],
                 "Rogue": ["Spell Sniper", "Double Knot", "A Thousand Cuts"],
             },
             "Ranger": {
                 "Barbarian": ["Bounty of the Hunt", "Wrath of Nature", "Iron Squall"],
-                "Clawbringer": ["Kindred Heart", "Bullseye", "Friend to Flame"],
+                "Necromancer": ["Kindred Heart", "Bullseye", "Friend to Flame"],
                 "Graveborn": ["Kindred Heart", "Windrunner", "Harvest"],
                 "GunMage": ["Called Shot", "Eagle Eye", "Imbued Weapon"],
                 "Rogue": ["Bullseye", "Eagle Eye", "A Thousand Cuts"],
             },
             "Rogue": {
                 "Barbarian": ["Haste", "Swift Death", "Cold Snap"],
-                "Clawbringer": ["Exploit Weakness", "Potent Poisons", "Dragon Aura"],
+                "Necromancer": ["Exploit Weakness", "Potent Poisons", "Dragon Aura"],
                 "Graveborn": ["Arsenal", "Sneak Attack", "Lord of Edges"],
                 "GunMage": ["Nimble Finger", "Arsenal", "Magic Bullets"],
                 "Ranger": ["Swift Death", "Follow Up", "Windrunner"],
             },
         }
         self.can_roll = {
-            "Barbarian": [1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0],
-            "Clawbringer": [1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1],
+            "Rogue": [1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0],
+            "GunMage": [1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1],
             "Graveborn": [1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0],
-            "GunMage": [1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1],
+            "Barbarian": [1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1],
             "Ranger": [1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0],
-            "Rogue": [1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0],
+            "Necromancer": [1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0],
         }
         self.levels = {
-            "Barbarian": [3, 5, 1, 3, 5, 5, 5, 1, 3, 3, 1, 5, 3, 1],
-            "Clawbringer": [5, 1, 3, 5, 5, 5, 1, 5, 1, 5, 1, 1, 3],
+            "Rogue": [3, 5, 1, 3, 5, 5, 5, 1, 3, 3, 1, 5, 3, 1],
+            "GunMage": [5, 1, 3, 5, 5, 5, 1, 5, 1, 5, 1, 1, 3],
             "Graveborn": [5, 5, 3, 3, 5, 1, 3, 1, 1, 5, 3, 5, 3, 1],
-            "GunMage": [5, 5, 3, 3, 5, 3, 3, 1, 3, 1, 5, 5, 1, 1],
+            "Barbarian": [5, 5, 3, 3, 5, 3, 3, 1, 3, 1, 5, 5, 1, 1],
             "Ranger": [5, 5, 5, 3, 1, 5, 1, 3, 5, 1, 3, 3, 3, 1],
-            "Rogue": [],
+            "Necromancer": [],
         }
         self.base_weights = {
             "light": 0,
@@ -204,6 +204,10 @@ class Items:
             "Ranger": "Medium",
             "Rogue": "Medium",
             "Barbarian": "Heavy",
+            "Necromancer": "Medium",
+        }
+        self.spread = {
+            "Legendary": 5,
         }
 
         self.compute_clusters()
@@ -342,6 +346,10 @@ class Items:
             part_name = part.split('.')[-1]
             parts_list_long.append(part)
             cat = self.get_category(item, part_name)
+            if not cat:
+                if not silent:
+                    print("{} for {} is not a possible part".format(part_name, item.balance_short, cat))
+                return False
             good = self.is_in_category(item, part_name, cat)
             if good:
                 if not counts.get(cat, None):
@@ -349,11 +357,12 @@ class Items:
                 counts[cat] = counts[cat] + 1
             else:
                 if not silent:
-                    print("{} for {} is not a possible part".format(part_name, item.balance_short))
+                    print("{} for {} is not a possible part as {}".format(part_name, item.balance_short, cat))
                 return False
             if part_name in parts_list \
                     and "Minor" not in part_name \
                     and "_Enh_" not in part_name \
+                    and "_Aug_" not in part_name \
                     and "_PassiveSkill_" not in part_name:
                 if not silent:
                     print("{} for {} is present more than once".format(part_name, item.balance_short))
@@ -376,10 +385,11 @@ class Items:
         if not self.has_dependant(item.balance_short, parts_list):
             return False
 
-        if self.has_wrong_clusters(item.balance_short, parts_list_long):
-            return False
-        if self.has_wrong_combos(item.balance_short, parts_list_long):
-            return False
+        # if self.has_wrong_clusters(item.balance_short, parts_list_long):
+        #     return False
+        if "/Pauldron" in item.balance:
+            if self.has_wrong_pauldron_stats(item.balance_short, parts_list_long):
+                return False
 
         if not silent:
             print("{} is legit".format(item.balance_short))
@@ -410,14 +420,20 @@ class Items:
                 part2_name = part2.split("PlayerStat_")[1].split("_")[0]
                 cluster = self.clusters[part_name]
                 if part2_name in cluster:
-                    print('{} is a parssive stat in the same cluster as{}'.format(part_name, part2_name))
+                    print('{} is a passive stat in the same cluster as {}'.format(part_name, part2_name))
                     return False
 
-    def has_wrong_combos(self, balance, parts_target):
+    def has_wrong_pauldron_stats(self, balance, parts_target):
         characterA = None
         characterB = None
         weightA = None
         weightB = None
+        combo = None
+        unique_part = 0
+        rarity = None
+        count_part = 0
+        skills = []
+        overrides = []
         for part in parts_target:
             if "/Class/Part" in part:
                 characterA = part.split("Primary_")[1].split(".")[0]
@@ -427,7 +443,82 @@ class Items:
                 weightA = part.split("Base_")[1].split(".")[0]
             if "/Base_Secondary/Part_" in part:
                 weightB = part.split("Base_Secondary_")[1].split(".")[0]
-        print("")
+            if "/SkillCombos/" in part:
+                combo = part.split("SkillCombo_")[1].split("_0")[0]
+            if "/_Uniques/" in part:
+                unique_part += 1
+            if "/Rarity/" in part:
+                rarity = part.split("Rarity_")[-1].split("_")[-1]
+            if "/SkillParts/" in part:
+                count_part += 1
+            if "/SkillParts/" in part:
+                skill = part.split("PassiveSkill_")[1].split(".")[0]
+                skills.append("{}_Passive_{}".format(skill.split("_")[0], skill.split("_")[1]))
+            if "/PlayerStat/" in part:
+                override = part.split("PlayerStat_")[1].split(".")[0]
+                overrides.append(override.split("_")[0])
+                # skills.append([skill.split("_")[0], "Passive_{}".format(skill.split("_")[1])])
+
+        if self.class_weights[characterA] != weightA:
+            print('{} should have a base part {} but got {}'.format(characterA, self.class_weights[characterA], weightA))
+            return False
+        if self.class_weights[characterB] != weightB:
+            print('{} should have a base part {} but got {}'.format(characterB, self.class_weights[characterB], weightB))
+            return False
+        if combo != "{}_{}".format(characterA, characterB):
+            print('skill combo should be {}_{} but is {}'.format(characterA, characterB, combo))
+            return False
+        if unique_part > 1:
+            print("There is more than 1 unique part")
+            return False
+        if self.spread[rarity] != count_part:
+            print('Amount of skill part should be {} but is {}'.format(self.spread[rarity], count_part))
+            return False
+
+        for part in overrides:
+            for part2 in overrides:
+                if part == part2:
+                    continue
+                cluster = self.clusters[part]
+                if part2 in cluster:
+                    print('{} is a passive stat in the same cluster as {}'.format(part, part2))
+                    return False
+
+        skill_counts = {}
+        for skill in skills:
+            t = self.combos[characterA][characterB]
+            possible_skills = [
+                "{}_{}".format(characterA, t[0]),
+                "{}_{}".format(characterA, t[1]),
+                "{}_{}".format(characterB, t[2]),
+            ]
+            if skill not in skill_counts:
+                skill_counts[skill] = 1
+            else:
+                skill_counts[skill] += 1
+
+            if skill not in possible_skills:
+                print("{} should not be present with {} as primary and {} as secondary".format(skill, characterA, characterB))
+
+        for key, value in skill_counts.items():
+            character = key.split("_")[0]
+            passive = "Passive_{}".format(key.split("Passive_")[1])
+            index = self.get_index_passive_raw(character, passive)
+
+            if not self.can_roll[character][index]:
+                print("{} should not be present on a mod class for {}".format(key, character))
+
+            a = self.levels[character]
+            if value > self.levels[character][index]:
+                print("{} can be max level {} but is {}".format(key, self.levels[character][index], value))
+
+
+    def get_index_passive_raw(self, character, passive):
+        for i, key in enumerate(self.passives_raw[character]):
+            value = self.passives_raw[character][key]
+            if value == passive:
+                return i
+        return None
 
     def has_excluders(self, balance, parts_target):
         for part in parts_target:
