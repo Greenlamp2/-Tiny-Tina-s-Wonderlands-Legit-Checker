@@ -70,9 +70,6 @@ class Items:
         return pool[n]
 
     def check_excluders(self, new_part, prev):
-        if len(new_part.excluders) == 0:
-            return True
-
         whatihave = {}
         whatifear = {}
         for elm in prev:
@@ -84,6 +81,27 @@ class Items:
             if cat not in whatifear:
                 whatifear[cat] = []
             whatifear[cat].append(elm)
+
+        for part in prev:
+            for elm in part.excluders:
+                cat = self.get_category(part.balance, elm.replace('\\', '/').split('/')[-1])
+                if not cat:
+                    rare = True
+                    continue
+                if cat not in whatifear:
+                    whatifear[cat] = []
+                if elm not in whatifear[cat]:
+                    whatifear[cat].append(elm)
+
+        multiple = ["MINOR", "PASSIVE SKILL PARTS", "PLAYER STAT"]
+        if new_part.category in whatihave:
+            if new_part.category not in multiple:
+                if new_part.category not in whatifear:
+                    whatifear[new_part.category] = [new_part.parts]
+                else:
+                    whatifear[new_part.category].append(new_part.parts)
+        else:
+            whatihave[new_part.category] = [new_part.parts]
 
         # return True if one value of whatihave is in whatineed for each key
         for key, value in whatifear.items():
@@ -151,10 +169,13 @@ class Items:
         if m == 0:
             return ret
         while len(ret) < m:
+            if len(pool) == 0:
+                return ret
             n = random.randint(0, len(pool) - 1)
             target = pool[n]
             if self.check_excluders(target, prev+ret) and self.check_included(target, prev+ret):
                 ret.append(target)
+                # print(target.parts)
             else:
                 pool.sort(key=sort_fn)
                 new_pool = [elm for elm in pool if elm.parts != target.parts]
@@ -193,16 +214,22 @@ class Items:
             item.set_item_type(item_type)
             if self.is_legit(item):
                 legit = True
+            else:
+                print("was not legit, generating another one, please wait.")
         return item
 
     def is_legit(self, item, silent=False):
+        all_parts = self.get_parts(item.balance_short)
         item_parts = item.parts
         counts = {}
         parts_list_long = []
+        cats = []
         for part, id in item_parts:
             part_name = part.split('.')[-1]
             parts_list_long.append(part)
             cat = self.get_category(item.balance_short, part_name)
+            if cat not in cats:
+                cats.append(cat)
             if not cat:
                 if not silent:
                     print("{} for {} is not a possible part".format(part_name, item.balance_short, cat))
@@ -216,6 +243,15 @@ class Items:
                 if not silent:
                     print("{} for {} is not a possible part as {}".format(part_name, item.balance_short, cat))
                 return False
+
+        cats = [item for item in list(all_parts.keys()) if item not in cats]
+        for key in cats:
+            min = all_parts[key][0].min_parts
+            if min > 0:
+                if not silent:
+                    print("{} for {} should be {} min but there is none".format(key, item.balance_short, min))
+                return False
+
 
         for key, value in counts.items():
             min, max = self.get_min_max(item, key)
