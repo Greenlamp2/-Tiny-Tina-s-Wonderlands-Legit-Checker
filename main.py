@@ -19,8 +19,6 @@ if __name__ == '__main__':
     for item in items:
         # print(item.get_serial_base64())
         balance = item.balance
-        # if "pauldron" in item.balance.lower():
-        #     print(db.get_serial_string(item))
         all_parts = db.get_parts(item.balance_short)
         if not all_parts:
             print("--- No data about {}".format(item.balance_short))
