@@ -5,13 +5,13 @@ from ttw_save_editor.WonderlandsSave import WonderlandsSave
 
 if __name__ == '__main__':
     db = Items()
-    db.load('export/gun_balances.csv', "GUNS")
-    db.load('export/shield_balances.csv', "SHIELDS")
-    db.load('export/pauldron_balances.csv', "PAULDRONS")
-    db.load('export/spell_balances.csv', "SPELLS")
-    db.load('export/ring_balances.csv', "RINGS")
-    db.load('export/amulet_balances.csv', "AMULETS")
-    db.load('export/melee_balances.csv', "MELEE")
+    db.load('export/gun_balances_long.csv', "GUNS")
+    db.load('export/shield_balances_long.csv', "SHIELDS")
+    db.load('export/pauldron_balances_long.csv', "PAULDRONS")
+    db.load('export/spell_balances_long.csv', "SPELLS")
+    db.load('export/ring_balances_long.csv', "RINGS")
+    db.load('export/amulet_balances_long.csv', "AMULETS")
+    db.load('export/melee_balances_long.csv', "MELEE")
 
     # db.reverse_item_serial("SERIAL"),
     # items = [
@@ -24,7 +24,7 @@ if __name__ == '__main__':
     #     db.reverse_item_serial("TTW(BQAAAABmvoC6KgbBh4oMMJCeCn2rwUhPnJRFFlmcFHFFEDWDgQAAAAAIAA==)"),
     # ]
     items = [
-        db.reverse_item_serial("TTW(BQAAAACKJIA7LAbhh4oMGFAeCnWzQclRYrkvllBaGskYzaaDgQAAAAAY)"),
+        db.reverse_item_serial("TTW(BQAAAAAhEoC7hwbBh4oCCHCeC3PDIUxrIIJIM4jGGWcc+uiDgQAAAAAY)"),
     ]
 
     for item in items:
