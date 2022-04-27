@@ -192,7 +192,7 @@ class Items:
                 if elm not in whatifear[cat]:
                     whatifear[cat].append(elm)
 
-        multiple = ["MINOR", "PASSIVE SKILL PARTS", "PLAYER STAT"]
+        multiple = ["MINOR STAT", "PASSIVE SKILL PARTS", "PLAYER STAT", "SPELL ENHANCEMENT", "AUGMENT"]
         if new_part.category in whatihave:
             if new_part.category not in multiple:
                 if new_part.category not in whatifear:
@@ -216,9 +216,6 @@ class Items:
         return True
 
     def check_included(self, new_part, prev):
-        if len(new_part.dependencies) == 0:
-            return True
-
         whatihave = {}
         rare = False
         for elm in prev:
@@ -257,7 +254,7 @@ class Items:
     def check_amount(self, new_part, prev):
         parts_multiples = {}
         for elm in prev:
-            multiple = ["MINOR", "PASSIVE SKILL PARTS", "PLAYER STAT"]
+            multiple = ["MINOR STAT", "PASSIVE SKILL PARTS", "PLAYER STAT", "SPELL ENHANCEMENT", "AUGMENT"]
             if elm.category in multiple:
                 if elm.category not in parts_multiples:
                     parts_multiples[elm.category] = []
@@ -281,9 +278,9 @@ class Items:
                     if value > to_check[skill_name]:
                         return False
 
-        if "MINOR" in parts_multiples:
+        if "MINOR STAT" in parts_multiples:
             detail = {}
-            parts = parts_multiples["MINOR"]
+            parts = parts_multiples["MINOR STAT"]
             for part in parts:
                 part_name = part.replace('\\', '/').split(".")[-1]
                 part_name_short = part_name.split("/")[-1]
@@ -332,9 +329,6 @@ class Items:
         new_item_parts = []
         all_parts = self.get_parts(item.balance_short)
         for type, parts in all_parts.items():
-            if len(parts) == parts[0].min_parts:
-                new_item_parts += parts
-                continue
             min, max = parts[0].min_parts, parts[0].max_parts
             res = self.get_random_min_max(parts, min, max, new_item_parts, seed)
             new_item_parts += res
